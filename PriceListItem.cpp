@@ -1,27 +1,26 @@
+//PriceListItem cpp.
+#include<iostream>
+#include<string>
 #include "PriceListItem.h"
+using namespace std;
 
+//paramter constructor
 PriceListItem::PriceListItem(const string &itemName, const string &code, double price, bool taxable) {
-	// TO BE COMPLETED
+    this->itemName =itemName;
+    this->code     =code;
+    this->price    =price;
+    this->taxable  =taxable;
+    
 }
-
+//default constructor
 PriceListItem::PriceListItem() {
-	// TO BE COMPLETED
-
+    itemName="";
+    code="";
+    price=0;
+    taxable=false;
 }
-
-string PriceListItem::getItemName() {
-	// TO BE COMPLETED
-}
-
-string PriceListItem::getCode() {
-	// TO BE COMPLETED
-}
-
-double PriceListItem::getPrice() {
-	// TO BE COMPLETED
-}
-
-bool PriceListItem::isTaxable() {
-	// TO BE COMPLETED
-}
+string PriceListItem::getItemName() { return itemName; }
+string PriceListItem::getCode()     { return code;}
+double PriceListItem::getPrice()    { return price;}
+bool PriceListItem::isTaxable()     { return taxable;}
 
