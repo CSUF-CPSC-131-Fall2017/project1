@@ -26,7 +26,7 @@ public:
     
 private:
 
-    const PriceList listOfItems;
+    PriceList listOfItems;
     int    billCount;
     string *theCodesAre;
     double *quanity;
