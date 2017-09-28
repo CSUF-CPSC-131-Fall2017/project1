@@ -25,6 +25,7 @@ private:
 public:
     
     PriceList();
+    ~PriceList();
     //default constructor
     void createPriceListFromDatafile(string filename);
     // Load information from a text file with the given filename (Completed)
