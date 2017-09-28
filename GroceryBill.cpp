@@ -30,7 +30,7 @@ void GroceryBill::scanItem(string scanCode, double quantity) {
     
     if (items.isTaxable())
         
-                groceryBillTotal += items.getPrice()*quantity*taxRate;
+                groceryBillTotal += items.getPrice()*quantity*(taxRate/100);
     
                     theCodesAre[billCount] = scanCode;
     
