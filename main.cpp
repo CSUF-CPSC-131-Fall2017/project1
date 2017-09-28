@@ -1,3 +1,11 @@
+//
+//  main.cpp
+//  Project - CPSC - 131 -05
+//
+//  Created by Jeremy Escobar on 9/27/17.
+//  Copyright © 2017 Jeremy Escobar. All rights reserved.
+//
+
 #include <iostream>
 #include <fstream>
 #include <string>
