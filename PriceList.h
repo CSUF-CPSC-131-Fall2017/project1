@@ -27,7 +27,7 @@ public:
     PriceList();
     ~PriceList();
     PriceList ( PriceList & pL);
-    PriceList & operator=(const PriceList *pL);
+    PriceList & operator=(const PriceList & pL);
     //default constructor
     void createPriceListFromDatafile(string filename);
     // Load information from a text file with the given filename (Completed)
