@@ -25,7 +25,6 @@ private:
 public:
     
     PriceList();
-    ~PriceList();
     PriceList & operator=(const PriceList *pL);
     //default constructor
     void createPriceListFromDatafile(string filename);
