@@ -22,6 +22,9 @@ PriceList::PriceList()
     futureItems = new PriceListItem[1000000];
     itemSize    = 0;
 }
+PriceList::~PriceList(){
+delete [] futureItems;
+}
 
 // Load information from a text file with the given filename.
 
