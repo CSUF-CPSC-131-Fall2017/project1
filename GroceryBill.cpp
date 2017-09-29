@@ -13,28 +13,29 @@
 
 using namespace std;
 
-GroceryBill::GroceryBill(const PriceList *priceList, double taxRate) {
+GroceryBill::GroceryBill(const PriceList *pL, double tR) {
+    listOfItems = *pL;
     groceryBillTotal      = 0;
     billCount         = 0;
     theCodesAre       = new string [1000000];
     quanity           = new double [1000000];
-    this->listOfItems = *priceList;
-    this->taxRate     = taxRate;
+    //    this->listOfItems = *priceList;
+    taxRate = tR;
 }
 
 void GroceryBill::scanItem(string scanCode, double quantity) {
     
     PriceListItem items = listOfItems.getItem (scanCode);
     
-        groceryBillTotal += items.getPrice()*quantity;
+    groceryBillTotal += items.getPrice()*quantity;
     
     if (items.isTaxable())
         
-                groceryBillTotal += items.getPrice()*quantity*(taxRate/100);
+        groceryBillTotal += items.getPrice()*quantity*(taxRate/100);
     
-                    theCodesAre[billCount] = scanCode;
+    theCodesAre[billCount] = scanCode;
     
-                        quanity[billCount++] = quantity;
+    quanity[billCount++] = quantity;
     
 }
 
@@ -62,7 +63,7 @@ void GroceryBill::scanItemsFromFile(string filename) {
         while (myfile >> code >> qty) {
             scanItem (code, qty);
         }
-            myfile.close();
+        myfile.close();
         
     }
     
@@ -104,14 +105,14 @@ void GroceryBill::printBill() {
         
     {
         
-        cout << listOfItems.getItem(theCodesAre[i]).getItemName()<< " "<<quanity[i] << " ";
+        cout << (listOfItems.getItem(theCodesAre[i])).getItemName()<< " "<<quanity[i] << " ";
         
-            if (listOfItems.getItem(theCodesAre[i]).isTaxable())
+        if ((listOfItems.getItem(theCodesAre[i])).isTaxable())
             
-                cout << "T";
+            cout << "T";
         
-                    cout << endl;
+        cout << endl;
         
-                        }
-    
+    }  
 }
+
