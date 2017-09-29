@@ -1,4 +1,4 @@
-//
+////
 //  GroceryBill.h
 //  Project - CPSC - 131 -05
 //
@@ -7,7 +7,6 @@
 //
 
 #pragma once
-
 #include "PriceList.h"
 
 class GroceryBill {
