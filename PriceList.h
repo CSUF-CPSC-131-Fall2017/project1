@@ -25,7 +25,7 @@ private:
 public:
     
     PriceList();
-    ~PriceList();
+
     PriceList (PriceList & pL);
     PriceList & operator = (const PriceList *pL);
     
