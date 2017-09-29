@@ -31,3 +31,4 @@ string PriceListItem::getItemName() { return itemName;}
 string PriceListItem::getCode()     { return code;    }
 double PriceListItem::getPrice()    { return price;   }
 bool   PriceListItem::isTaxable()   { return taxable; }
+
