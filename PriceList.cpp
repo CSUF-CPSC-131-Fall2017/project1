@@ -1,86 +1,40 @@
 //
-//  PriceList.cpp
+//  PriceList.h
 //  Project - CPSC - 131 -05
 //
 //  Created by Jeremy Escobar on 9/27/17.
 //  Copyright © 2017 Jeremy Escobar. All rights reserved.
 //
 
+#pragma once
 
 #include <string>
-#include <iostream>
-#include <fstream>
 #include <stdexcept>
 
-#include "PriceList.h"
 #include "PriceListItem.h"
 
 using namespace std;
 
-PriceList::PriceList()
-{
-    futureItems = new PriceListItem[1000000];
-    itemSize    = 0;
-}
-PriceList::~PriceList(){
-delete [] futureItems;
-}
-
-// Load information from a text file with the given filename.
-
-void PriceList::createPriceListFromDatafile(string filename) {
-    ifstream myfile(filename);
+class PriceList {
     
-    if (myfile.is_open()) {
-        cout << "Successfully opened file " << filename << endl;
-        string name;
-        string code;
-        double price;
-        bool taxable;
-            while (myfile >> name >> code >> price >> taxable) {
-            //cout << code << " " << taxable << endl;
-                addEntry (name, code, price, taxable);
-                    }
-                        myfile.close();
-                            }
-    else
-        throw invalid_argument("Could not open file " + filename);
-}
-// return true only if the code is valid
-
-bool PriceList::isValid(string code) const {
+private:
     
-    for ( int i = 0; i < itemSize; i++)
-    {
-        if ( futureItems[i].getCode() == code)
-            return true;
-                }
-                    return false;
-}
-
-// return price, item name, taxable? as an ItemPrice object; throw exception if code is not found
-
-PriceListItem PriceList::getItem(string code) const {
+    PriceListItem *futureItems;
+    int itemSize;
     
-    for (int j = 0; j < itemSize; j++)
-    {
-        if ( futureItems[j].getCode() == code)
-            return futureItems[j];
-                }
-                    throw invalid_argument("Invalid code: " + code);
-}
-
-// add to the price list information about a new item
-
-void PriceList::addEntry(string itemName, string code, double price, bool taxable) {
+public:
     
+    PriceList();
+    PriceList (PriceList & pL);
+    PriceList & operator = (const PriceList *pL);
     
-    if ( itemSize == 0)
-        {
-            futureItems = new PriceListItem[1000000];
-                }
-                    PriceListItem pricedItems = PriceListItem (itemName, code, price, taxable);
-                        futureItems [itemSize] = pricedItems;
-                            itemSize++;
-    
-}
+    //default constructor
+    void createPriceListFromDatafile(string filename);
+    // Load information from a text file with the given filename (Completed)
+    void addEntry(string itemName, string code, double price, bool taxable);
+    // add to the price list information about a new item. A max of 1,000,000 entries can be added
+    bool isValid(string code) const;
+    // return true only if the code is valid
+    PriceListItem getItem(string code) const;
+    // return price, item name, taxable? as an PriceListItem object; throw exception if code is not found
+};
