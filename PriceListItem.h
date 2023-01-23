@@ -2,8 +2,8 @@
 //  PriceListItem.h
 //  Project - CPSC - 131 -05
 //
-//  Created by Jeremy Escobar on 9/27/17.
-//  Copyright © 2017 Jeremy Escobar. All rights reserved.
+//  Created by Jeremy Escobar
+//  Copyright © Jeremy Escobar. All rights reserved.
 //
 
 #pragma once
