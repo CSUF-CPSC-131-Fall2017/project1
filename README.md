@@ -5,4 +5,3 @@ MUST EDIT WITH YOUR OWN NAME AND EMAIL IN THE SAME FORMAT
 
 Group members:
 Jeremy Escobar
-escobarjeremy@csu.fullerton.edu
